@@ -21,10 +21,22 @@ int main(int argc, char *argv[])
     if (len != 0)
     {
       input[len - 1] = '\0'; // delete the last '\n'
-      if (!strcmp(input, "exit 0")) {
-        break;
+      if (len == 7 && !strncmp(input, "exit 0", 6)) // len is the length of string when the string still has '\n'
+      {
+        return 0;
       }
-      printf("%s: command not found\n", input);
+      if (!strncmp(input, "echo ", 5))
+      {
+        if (len > 5)
+        {
+          printf("%s\n", &input[5]);
+          // '\n'!!!
+        }
+      }
+      else
+      {
+        printf("%s: command not found\n", input);
+      }
     }
     // memset(input, 0, sizeof(input));
   }
