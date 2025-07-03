@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
@@ -10,6 +11,12 @@ int main(int argc, char *argv[]) {
   printf("$ ");
   // Wait for user input
   char input[100];
-  fgets(input, 100, stdin);
+  fgets(input, 100, stdin); // fgets will read a '\n' into the string
+  // if the input is not empty
+  int len = strlen(input);
+  if (len != 0) {
+    input[len - 1] = '\0'; // delete the last '\n'
+    printf("%s: command not found\n", input);
+  }
   return 0;
 }
