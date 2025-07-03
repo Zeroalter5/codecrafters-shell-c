@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
 
   // Uncomment this block to pass the first stage
   // printf("$ ");
-
+  printf("$ ");
   // Wait for user input
   char input[100];
   fgets(input, 100, stdin);
